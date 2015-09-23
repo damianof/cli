@@ -1,11 +1,14 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+var _Object$defineProperty = require('babel-runtime/core-js/object/define-property')['default'];
+
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+
+_Object$defineProperty(exports, '__esModule', {
   value: true
 });
-exports.init = init;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+exports.init = init;
 
 var _mkdirpPromise = require('../mkdirp-promise');
 

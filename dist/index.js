@@ -1,14 +1,16 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+var _createClass = require('babel-runtime/helpers/create-class')['default'];
+
+var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
+
+var _Object$defineProperty = require('babel-runtime/core-js/object/define-property')['default'];
+
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+
+_Object$defineProperty(exports, '__esModule', {
   value: true
 });
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var _glob = require('glob');
 
@@ -46,6 +48,12 @@ var Aurelia = (function () {
       var _this = this;
 
       this.config = config;
+
+      _commander2['default'].version(require('../package.json').version);
+      _commander2['default'].on('*', function (cmd) {
+        _this.logger.warn('Unknown command: \'' + cmd + '\'');
+        _commander2['default'].outputHelp();
+      });
 
       var cmdDir = __dirname + _path2['default'].sep + 'commands';
       _fs2['default'].readdirSync(cmdDir).forEach(function (f) {
@@ -112,6 +120,9 @@ var Aurelia = (function () {
     key: 'run',
     value: function run(argv) {
       _commander2['default'].parse(argv);
+      if (_commander2['default'].args.length < 1) {
+        _commander2['default'].outputHelp();
+      }
     }
   }]);
 

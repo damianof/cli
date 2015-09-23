@@ -1,13 +1,18 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+var _Object$defineProperty = require('babel-runtime/core-js/object/define-property')['default'];
+
+var _Object$defineProperties = require('babel-runtime/core-js/object/define-properties')['default'];
+
+_Object$defineProperty(exports, '__esModule', {
   value: true
 });
+
 exports.log = log;
 exports.err = err;
 exports.ok = ok;
 if (!String.prototype.magenta) {
-  Object.defineProperties(String.prototype, {
+  _Object$defineProperties(String.prototype, {
     magenta: { get: function get() {
         return '\u001b[35m' + this.valueOf() + '\u001b[39m';
       } },
